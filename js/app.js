@@ -573,23 +573,23 @@ const comment = (() => {
         let tmp = buttonKirim.innerHTML;
         buttonKirim.innerHTML = loader;
 
-        let isSuccess = false;
-        await request('POST', '/api/comment')
-            .token(token)
-            .body({
-                nama: nama,
-                hadir: hadir == 1,
-                komentar: komentar
-            })
-            .then((res) => {
-                if (res.code == 201) {
-                    owns.set(res.data.uuid, res.data.own);
-                    isSuccess = true;
-                }
-            })
-            .catch((err) => {
-                alert(`Terdapat kesalahan: ${err}`);
-            });
+        let isSuccess = true;
+        // await request('POST', '/api/comment')
+        //     .token(token)
+        //     .body({
+        //         nama: nama,
+        //         hadir: hadir == 1,
+        //         komentar: komentar
+        //     })
+        //     .then((res) => {
+        //         if (res.code == 201) {
+        //             owns.set(res.data.uuid, res.data.own);
+        //             isSuccess = true;
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         alert(`Terdapat kesalahan: ${err}`);
+        //     });
 
         if (isSuccess) {
             await pagination.reset();
